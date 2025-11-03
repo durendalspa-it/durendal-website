@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Durendal - Desarrollo de software, consultoría tecnológica y soluciones permanentes. Software que perdura.">
+    <title>Durendal - Software que perdura</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Header / Nav */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #000;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #000;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            text-align: center;
+            padding: 80px 40px;
+        }
+        
+        .hero-content h1 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 12px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        
+        .hero-content .tagline {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+        
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px;
+        }
+        
+        section h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        section .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 60px;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 60px auto 0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #000;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .submit-button:hover {
+            background: #333;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 60px 40px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: #fff;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+                letter-spacing: 6px;
+            }
+            
+            section {
+                padding: 60px 20px;
+            }
+            
+            section h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 50 10 L 85 25 L 85 60 Q 85 85 50 90 Q 15 85 15 60 L 15 25 Z" 
+                              fill="#000" stroke="#000" stroke-width="2"/>
+                        <text x="50" y="65" font-family="Georgia, serif" font-size="48" 
+                              font-weight="700" text-anchor="middle" fill="#fff">D</text>
+                    </svg>
+                </div>
+                <div class="logo-text">DURENDAL</div>
+            </div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>DURENDAL</h1>
+            <p class="tagline">Software que perdura</p>
+            <p>
+                Desarrollamos soluciones tecnológicas sólidas, confiables y permanentes. 
+                Como la espada legendaria, nuestro software está construido para resistir el paso del tiempo.
+            </p>
+            <a href="#contacto" class="cta-button">Hablemos de tu proyecto</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p class="subtitle">Construido para durar</p>
+        <div class="about-content">
+            <p>
+                En Durendal creemos que el software debe ser más que código funcional. 
+                Debe ser inquebrantable, confiable y construido con los más altos estándares de calidad.
+            </p>
+            <p style="margin-top: 20px;">
+                Nos especializamos en desarrollo de software, consultoría tecnológica y creación de 
+                soluciones SaaS que aportan valor real a tu negocio. Sin atajos, sin compromisos.
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Nuestros valores:</strong> Confianza, seriedad, respeto y cercanía. 
+                Tu proyecto en manos firmes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <p class="subtitle">Soluciones tecnológicas permanentes</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Desarrollo de Software</h3>
+                <p>
+                    Creamos aplicaciones web y móviles robustas, escalables y mantenibles. 
+                    Código limpio, arquitectura sólida, resultados duraderos.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Consultoría Tecnológica</h3>
+                <p>
+                    Asesoramos en arquitectura de software, mejores prácticas, transformación digital 
+                    y decisiones tecnológicas estratégicas.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Desarrollo SaaS</h3>
+                <p>
+                    Construimos productos SaaS desde cero, diseñados para crecer con tu negocio. 
+                    De la idea al producto en producción.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Ciberseguridad</h3>
+                <p>
+                    Implementamos prácticas de seguridad desde el diseño. Tu software protegido 
+                    contra amenazas modernas.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Mantenimiento y Soporte</h3>
+                <p>
+                    No te dejamos solo después del lanzamiento. Mantenimiento continuo, 
+                    actualizaciones y soporte técnico.
+                </p>
+            </div>
+            
+            <div class="service-card">
+                <h3>Migración y Modernización</h3>
+                <p>
+                    Actualizamos sistemas legacy a tecnologías modernas. Evoluciona sin perder 
+                    tu inversión actual.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p class="subtitle">Conversemos sobre tu proyecto</p>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Empresa (opcional)</label>
+                <input type="text" id="company" name="company">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-button">Enviar Mensaje</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DURENDAL</h3>
+                <p>Desarrollo de software | Consultoría tecnológica | Soluciones permanentes</p>
+                <p style="margin-top: 20px; font-style: italic;">"Software que perdura"</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <p><a href="#servicios">Desarrollo de Software</a></p>
+                <p><a href="#servicios">Consultoría Tecnológica</a></p>
+                <p><a href="#servicios">Desarrollo SaaS</a></p>
+                <p><a href="#servicios">Ciberseguridad</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: contacto@durendal.cl</p>
+                <p>Temuco, Región de La Araucanía</p>
+                <p>Chile</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Durendal SpA. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para los links de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Manejo del formulario (puedes conectarlo a un servicio de email más adelante)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Te contactaremos pronto.\n\n(Nota: Este formulario aún no envía emails. Conéctalo a un servicio como FormSpree, Netlify Forms o tu backend.)');
+        });
+    </script>
+</body>
+</html>
